@@ -1,0 +1,20 @@
+from cx_Freeze import setup, Executable
+
+# Include additional files such as the icon
+include_files = ['myicon.ico']
+
+# Define the executable
+target = Executable(
+    script="solar_inverter_selector.py",
+    base="Win32GUI",  # Use "Win32GUI" to hide the console window
+    icon="myicon.ico"
+)
+
+# Setup configuration
+setup(
+    name="Solar Inverter Selector",
+    version="1.0",
+    description="A tool to select suitable solar inverters",
+    options={"build_exe": {"include_files": include_files}},
+    executables=[target]
+)
